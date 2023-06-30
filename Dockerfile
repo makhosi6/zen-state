@@ -1,7 +1,9 @@
 FROM node:16-alpine
-WORKDIR /usr/src/app
+RUN mkdir /app 
+VOLUME /app
+WORKDIR /app
 COPY package*.json ./
 RUN npm i
 COPY . .
 EXPOSE 3033
-CMD [ "npm", "start" ]
+CMD [ "node", "index.js" ]
